@@ -1,0 +1,46 @@
+{
+  "name": "redux-persist-nedb",
+  "version": "2.1.0",
+  "description": "Redux persist adapter for NeDB",
+  "main": "lib/index.js",
+  "types": "./types/index.d.ts",
+  "repository": {
+    "url": "https://github.com/tate2301/redux-persist-nedb",
+    "type": "git"
+  },
+  "author": "Tatenda Chinyamakobvu",
+  "license": "MIT",
+  "scripts": {
+    "test": "electron-mocha",
+    "lint": "eslint lib test"
+  },
+  "peerDependencies": {
+    "electron-store": "*"
+  },
+  "devDependencies": {
+    "@types/electron-store": "^3.2.0",
+    "chai": "^4.2.0",
+    "electron": "^9.4.0",
+    "electron-mocha": "^8.1.2",
+    "electron-store": "^5.1.0",
+    "eslint": "^6.7.2",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "typescript": "^3.7.3"
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "globals": {
+      "describe": false,
+      "it": false
+    }
+  },
+  "dependencies": {
+    "deep-parse-json": "^1.0.2",
+    "nedb": "^1.8.0",
+    "path": "^0.12.7"
+  }
+}
