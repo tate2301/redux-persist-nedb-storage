@@ -3,26 +3,28 @@
 // Definitions by: Bob Matcuk <https://github.com/bmatcuk>
 // TypeScript Version: 2.8
 
-import ElectronStore = require("electron-store");
+import NeDB = require('nedb')
 
-type GetConstructorArgument<C> = C extends { new(arg: infer A): any } ? A : never;
+type GetConstructorArgument<C> = C extends { new (arg: infer A): any }
+  ? A
+  : never
 
 interface StorageOptions<T> {
-  electronStore?: ElectronStore<T>;
-  electronStoreOpts?: GetConstructorArgument<typeof ElectronStore>;
+  databasePathname?: string
+  inMemoryOnly?: boolean
 }
 
-interface ElectronStorage<T> {
-  getItem<K extends keyof T>(key: K): Promise<T[K]>;
-  getItem(key: string): Promise<any>;
+interface NeDB<T> {
+  getItem<K extends keyof T>(key: K): Promise<T[K]>
+  getItem(key: string): Promise<any>
 
-  setItem<K extends keyof T>(key: K, item: T[K]): Promise<void>;
-  setItem(key: string, item: any): Promise<void>;
+  setItem<K extends keyof T>(key: K, item: T[K]): Promise<void>
+  setItem(key: string, item: any): Promise<void>
 
-  removeItem<K extends keyof T>(key: K): Promise<void>;
-  removeItem(key: string): Promise<void>;
+  removeItem<K extends keyof T>(key: K): Promise<void>
+  removeItem(key: string): Promise<void>
 }
 
-declare function createElectronStorage<T = {}>(options?: StorageOptions<T>): ElectronStorage<T>;
+declare function createNeDBStorage<T = {}>(options?: StorageOptions<T>): NeDB<T>
 
-export = createElectronStorage;
+export = createNeDBStorage

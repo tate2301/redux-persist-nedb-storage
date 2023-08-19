@@ -1,19 +1,11 @@
-import createElectronStorage = require('..')
-import ElectronStore = require('electron-store')
+import createNeDBStorage = require('..')
 
-createElectronStorage({
-  electronStore: new ElectronStore()
+createNeDBStorage({
+  databasePathname: 'foo.db',
+  inMemoryOnly: true
 })
 
-createElectronStorage({
-  electronStoreOpts: {
-    defaults: {},
-    name: 'myConfiguration',
-    cwd: 'unicorn'
-  }
-})
-
-const storage = createElectronStorage()
+const storage = createNeDBStorage()
 storage.getItem('foo')
 storage.setItem('foo', 'bar')
 storage.removeItem('foo')
@@ -23,6 +15,6 @@ interface SampleStorage {
   interval: number
 }
 
-const typedStorage = createElectronStorage<SampleStorage>()
+const typedStorage = createNeDBStorage<SampleStorage>()
 const enabled: Promise<boolean> = typedStorage.getItem('enabled')
 const interval: Promise<number> = typedStorage.getItem('interval')
