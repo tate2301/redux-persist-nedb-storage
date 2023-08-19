@@ -14,34 +14,36 @@ Storage adapter to use [nedb](https://github.com/louischatriot/nedb) with [redux
 ### npm
 
 ```bash
-npm i -S nedb redux-persist-nedb
+npm i -S nedb redux-persist-nedb deep-parse-json
 ```
 
 ### yarn
 
 ```bash
-yarn add nedb redux-persist-nedb
+yarn add nedb redux-persist-nedb deep-parse-json
 ```
 
 ## Usage
 
 To use redux-persist-nedb, configure redux-persist according to [its documentation](https://github.com/rt2zz/redux-persist#redux-persist).
 
-Modify the classic redux-persist configuration as follows:
+Modify the classic redux-persist configuration as follows, including the deep-parse-json package:
 
 - Do **not** import `redux-persist/lib/storage` anymore, as we use an alternative storage.
 - Import `redux-persist-nedb`:
 
 ```js
 import createNeDBStorage from 'redux-persist-nedb'
+import deepParseJson from 'deep-parse-json'
 ```
 
-- Modify the options for `persistReducer` in order to use the storage dedicated to Electron:
+- Modify the options for `persistReducer` in order to use the NeDB storage and set the deserialize option to `deepParseJson`:
 
 ```js
 const persistConfig = {
   key: 'root',
-  storage: createNeDBStorage()
+  storage: createNeDBStorage(),
+  deserialize: deepParseJson
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
