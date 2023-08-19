@@ -4,8 +4,6 @@
 
 [![npm version](https://img.shields.io/npm/v/redux-persist-nedb.svg?style=flat-square)](https://www.npmjs.com/package/redux-persist-nedb)
 [![npm downloads](https://img.shields.io/npm/dt/redux-persist-nedb.svg?style=flat-square)](https://www.npmjs.com/package/redux-persist-nedb)
-[![Build Status](https://travis-ci.org/psperber/redux-persist-nedb.svg?branch=master)](https://travis-ci.org/psperber/redux-persist-nedb)
-[![Greenkeeper badge](https://badges.greenkeeper.io/psperber/redux-persist-nedb.svg)](https://greenkeeper.io/)
 
 Storage adapter to use [nedb](https://github.com/louischatriot/nedb) with [redux-persist](https://github.com/rt2zz/redux-persist)
 
