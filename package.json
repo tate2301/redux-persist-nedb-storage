@@ -1,6 +1,6 @@
 {
   "name": "redux-persist-nedb-storage",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Redux persist adapter for NeDB",
   "main": "lib/index.js",
   "types": "./types/index.d.ts",
